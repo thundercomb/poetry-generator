@@ -7,7 +7,7 @@
 <div id="poem">
 <?php 
 
-$command = escapeshellcmd('python3 ./poem.py normal');
+$command = escapeshellcmd('ruby ./poem.rb normal');
 $output = shell_exec($command);
 echo $output;
 
