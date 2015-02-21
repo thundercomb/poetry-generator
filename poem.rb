@@ -1,10 +1,14 @@
 #!/usr/bin/ruby
+#====================================================
+#
+# Usage: ruby poem.rb [<bnf file>] [<sub-type>]
+#    Eg. ruby poem.rb shakespeare.bnf rough
 
 class BNF_Dictionary
   
-  def initialize
+  def initialize(bnf_file)
     @grammar = {}
-    File.open("poems.bnf","r") do |f|
+    File.open(bnf_file,"r") do |f|
       f.each do |line|
         line_split = line.split('=')
         @grammar[line_split[0]] = []
@@ -16,6 +20,7 @@ class BNF_Dictionary
   end
         
   def generate(key,num)
+		key
     gram = @grammar[key]
     i = rand(gram.length - 1)
     string = ""
@@ -134,9 +139,8 @@ class BNF_Dictionary
   end
 end
   
-bnf = BNF_Dictionary.new
-if ARGV.include?"mushy"
-  puts(bnf.generate_pretty('<mushypoem>'))
-else
-  puts(bnf.generate_pretty('<poem>'))
-end
+bnf_file = ARGV[0].nil? ? "poems.bnf" : ARGV[0]
+sub_type = ARGV[1].nil? ? "<poem>" : "<#{ARGV[1]}>"
+
+bnf = BNF_Dictionary.new(bnf_file)
+puts(bnf.generate_pretty("#{sub_type}"))
