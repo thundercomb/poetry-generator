@@ -1,12 +1,19 @@
 poetry-generator
 ================
 
-This is a fork of [Zackary Scholl's excellent Poetry Generator](https://github.com/schollz/poetry-generator). The main logic has been changed to Ruby, as my scripting language of choice. The aim of this fork is to experiment with and extend the dataset, which employs Backus-Naur Form.
+This is a fork of [Zackary Scholl's excellent Poetry Generator](https://github.com/schollz/poetry-generator). It now runs as Ruby rather than Python. I've also added new data.
 
-Scholl describes his Poetry Generator as follows (*edited for the Ruby conversion*):
+Poetry Generator is a data driven process and most of the work goes into crafting the bnf dataset. Backus-Naur Form is a type of context-free grammar. For development purposes it functions a lot like parameterised templating. Decent results can be generated, as Scholl's original demonstrates. Almost everything depends on the quality of the dataset and its formalisation. 
 
-This program works on the basis that every word in the English language is either "positive" or "negative." For instance "lovely" is positive and "thorn" is negative. A "poem" is a group of sentences that are structured in a way to have +1, -1 or 0 in terms of the positivity/negativity.  A "mushy poem" is strictly positive.
+Particular data files can be run as follows:
 
-All the syntax and word choices are in the ```poem.bnf``` file. The main program is in ```poem.rb``` and for web applications use the ```poem.php``` script to automatically generate a poem onload!
+ruby poem.rb <dataset>
 
-Try the [demo here](http://www.zackaryscholl.com/programming/poetry-generator/poem.php)
+eg.
+
+ruby poem.rb shakespeare.bnf
+
+At the moment two datasets are available:
+
+1. scholl.bnf: Zackary Scholl's [original] (http://www.zackaryscholl.com/programming/poetry-generator/poem.php)
+2. shakespeare.bnf: Derived from a selection of Shakespeare sonnets
