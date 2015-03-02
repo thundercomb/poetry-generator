@@ -139,7 +139,7 @@ class BNF_Dictionary
   end
 end
   
-bnf_file = ARGV[0].nil? ? "poems.bnf" : ARGV[0]
+bnf_file = ARGV[0].nil? ? "shakespeare.bnf" : ARGV[0]
 sub_type = ARGV[1].nil? ? "<poem>" : "<#{ARGV[1]}>"
 
 bnf = BNF_Dictionary.new(bnf_file)
