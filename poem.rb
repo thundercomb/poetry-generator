@@ -60,7 +60,7 @@ class BNF_Dictionary
       end
       if is_title
         mydate = Time.now
-        new_poem = new_poem.concat("<h1>").concat(line).concat("</h1>\n<h2>by A Computer, ").concat(mydate.strftime("%d %B %Y")).concat("</h2>\n")
+        new_poem = new_poem.concat("<h1>").concat(line).concat("</h1>\n<h2>by The Poet's Computer, ").concat(mydate.strftime("%d %B %Y")).concat("</h2>\n")
         is_title = false
       else
         if line.length < 1
